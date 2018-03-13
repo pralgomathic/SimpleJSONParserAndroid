@@ -42,7 +42,7 @@ public class JsonListBuilder {
                 DataDTO dataDTO1 = new DataDTO();
                 dataDTO1.setTopicId(jsonArrayJSONObject.getLong(TOPIC_ID));
                 dataDTO1.setTopicTitle(jsonArrayJSONObject.getString(TOPIC_TITLE));
-
+                Constants.debugLog("JsonListBuilder", " id : " +jsonArrayJSONObject.getLong(TOPIC_ID) + " title : " + jsonArrayJSONObject.getString(TOPIC_TITLE));
 
                 if (topicListMap != null) {
                     topicListMap.put(jsonArrayJSONObject.getLong(TOPIC_ID), dataDTO1);

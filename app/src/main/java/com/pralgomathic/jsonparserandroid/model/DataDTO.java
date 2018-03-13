@@ -1,12 +1,13 @@
 package com.pralgomathic.jsonparserandroid.model;
 
+import java.io.Serializable;
 import java.util.Map;
 
 /**
  * Created by jumman on 3/13/18.
  */
 
-public class DataDTO {
+public class DataDTO implements Serializable {
     private Long topicId;
     private String topicTitle;
     private Map<Long,DataDTO> topicListMap;
@@ -38,5 +39,9 @@ public class DataDTO {
         this.topicListMap = topicListMap;
     }
 
+    public DataDTO(Long topicId,String topicTitle){
+        this.topicId = topicId;
+        this.topicTitle = topicTitle;
 
+    }
 }
