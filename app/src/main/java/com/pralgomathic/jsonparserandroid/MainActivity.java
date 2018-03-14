@@ -9,6 +9,8 @@ import com.pralgomathic.jsonparserandroid.JsonParser.JsonManager;
 import com.pralgomathic.jsonparserandroid.model.DataDTO;
 import com.pralgomathic.jsonparserandroid.utils.Constants;
 
+import java.util.Map;
+
 public class MainActivity extends AppCompatActivity implements JsonListLoaded{
 
     private static final String TAG = "MainActivity";
@@ -29,9 +31,13 @@ public class MainActivity extends AppCompatActivity implements JsonListLoaded{
     @Override
     public void onJsonListLoaded(DataDTO dataDTO) {
         try {
-            Constants.debugLog(TAG, " topic id  " + dataDTO.getTopicId());
-            Constants.debugLog(TAG, " topic title " + dataDTO.getTopicTitle());
-            Constants.debugLog(TAG, "Total List " + dataDTO.getTopicListMap().size());
+            for (Map.Entry<Long, DataDTO> entry : dataDTO.getTopicListMap().entrySet()) {
+                Constants.debugLog(TAG, " topic id  "+entry.getValue().getTopicId());
+                Constants.debugLog(TAG, " topic title  "+entry.getValue().getTopicTitle());
+            }
+//            Constants.debugLog(TAG, " topic id  " + dataDTO.getTopicId());
+//            Constants.debugLog(TAG, " topic title " + dataDTO.getTopicTitle());
+//            Constants.debugLog(TAG, "Total List " + dataDTO.getTopicListMap().size());
             if (progressBar.isShowing()) {
                 progressBar.dismiss();
             }

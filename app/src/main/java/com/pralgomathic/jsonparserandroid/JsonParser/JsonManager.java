@@ -3,6 +3,7 @@ package com.pralgomathic.jsonparserandroid.JsonParser;
 import android.os.AsyncTask;
 
 import com.pralgomathic.jsonparserandroid.model.DataDTO;
+import com.pralgomathic.jsonparserandroid.utils.Constants;
 
 /**
  * Created by jumman on 3/13/18.
@@ -22,6 +23,7 @@ public class JsonManager extends AsyncTask<String, Void, Void> {
         try {
             JsonListBuilder dataJson = new JsonListBuilder(url[0]);
             dataDTO = dataJson.getTopicList();
+
         } catch (Exception e) {
             e.printStackTrace();
         }
